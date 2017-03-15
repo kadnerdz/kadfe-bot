@@ -1,5 +1,6 @@
-var client = require('kadfe-client');
+//var client = require('kadfe-client');
 var Botkit = require('botkit');
+var http = require('http');
 
 var controller = Botkit.slackbot({
   debug: false
@@ -9,7 +10,7 @@ var bot = controller.spawn({
   token: process.env.TOKEN
 });
 
-console.log(process.env.TOKEN)
+//console.log(process.env.TOKEN)
 
 bot.startRTM(function(err,bot,payload) {
   if (err) {
@@ -36,3 +37,5 @@ controller.hears('status', ['direct_mention'], (bot, message) => {
   bot.reply(message, "I'll check!");
   //client.coffeeStatus();
 })
+
+http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

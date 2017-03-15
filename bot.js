@@ -24,10 +24,19 @@ controller.hears('brewed', ['direct_mention', 'mention'], (bot, message) => {
 });
 
 controller.hears('claimed', ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "You got it boss!");
+  bot.reply(message, "Let's see...");
   client.coffeeStatus
-    .then( (status) => {
-      console.log(status);
+    .then(function (body) {
+      if (body['status'] === 'available') {
+        bot.reply(message, "OK, coffee's yours!");
+      } else if (body['status'] === 'unavailable') {
+        bot.reply(message, "No coffee for you!");
+      } else {
+        bot.reply(message, "This doesn't seem right. Yell @joe")
+      }
+    })
+    .catch(function (error) {
+      bot.reply(message, "Something's wrong! Yell @joe")
     });
 })
 

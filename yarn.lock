@@ -604,9 +604,9 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2, debug@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
+debug@2:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
     ms "0.7.2"
 
@@ -615,6 +615,12 @@ debug@2.2.0:
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
+
+debug@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
+  dependencies:
+    ms "0.7.2"
 
 decamelize@^1.0.0:
   version "1.2.0"
@@ -1120,8 +1126,8 @@ jws@^3.0.0, jws@^3.1.4:
     safe-buffer "^5.0.1"
 
 "kadfe-client@https://github.com/kadnerdz/kadfe-client.git":
-  version "0.0.2"
-  resolved "https://github.com/kadnerdz/kadfe-client.git#19b339870b4edfc55baab738ea99ecd6d8e08ddc"
+  version "0.0.3"
+  resolved "https://github.com/kadnerdz/kadfe-client.git#56082d8e52e357c2993f381fba1a6daae8308251"
   dependencies:
     request "^2.79.0"
 

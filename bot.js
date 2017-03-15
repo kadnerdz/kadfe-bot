@@ -1,4 +1,4 @@
-//var client = require('kadfe-client');
+var client = require('kadfe-client');
 var Botkit = require('botkit');
 var http = require('http');
 

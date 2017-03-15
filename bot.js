@@ -1,5 +1,6 @@
 var client = require('kadfe-client');
 var Botkit = require('botkit');
+var http = require('http');
 
 var controller = Botkit.slackbot({
   debug: true

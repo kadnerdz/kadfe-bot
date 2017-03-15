@@ -33,7 +33,10 @@ controller.hears('claimed', ['direct_mention', 'mention'], (bot, message) => {
 
 controller.hears('status', ['direct_mention'], (bot, message) => {
   bot.reply(message, "I'll check!");
-  client.coffeeStatus();
+  client.coffeeStatus
+    .then( (status) => {
+      bot.reply(message, "Coffee available?" + status)
+    })
 })
 
 http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

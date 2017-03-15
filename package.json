@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "botkit": "^0.5.1"
+    "botkit": "^0.5.1",
+    "kadfe-client": "https://github.com/kadnerdz/kadfe-client.git"
   }
 }

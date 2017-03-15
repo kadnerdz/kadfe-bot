@@ -593,17 +593,17 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2, debug@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
-  dependencies:
-    ms "0.7.1"
-
-debug@2.6.1:
+debug@2, debug@2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
+
+debug@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
+  dependencies:
+    ms "0.7.1"
 
 decamelize@^1.0.0:
   version "1.2.0"
@@ -1108,6 +1108,12 @@ jws@^3.0.0, jws@^3.1.4:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
+"kadfe-client@https://github.com/kadnerdz/kadfe-client.git":
+  version "0.0.1"
+  resolved "https://github.com/kadnerdz/kadfe-client.git#2d10587ec5e9a16ae69a39a11b8aedfc0ce356e2"
+  dependencies:
+    request "^2.79.0"
+
 key-tree-store@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/key-tree-store/-/key-tree-store-1.3.0.tgz#5ea29afc2529a425938437d6955b714ce6a9791f"
@@ -1566,7 +1572,7 @@ request@2.78.0:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
-request@^2.60.0, request@^2.67.0, request@^2.69.0:
+request@^2.60.0, request@^2.67.0, request@^2.69.0, request@^2.79.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:

@@ -1,14 +1,15 @@
+var client = require('kadfe-client');
 var Botkit = require('botkit');
-var http = require('http');
-var server = REPLACE_WITH_URI;
 
 var controller = Botkit.slackbot({
-  debug: false;
+  debug: false
 })
 
 var bot = controller.spawn({
-  token: REPLACE_WITH_TOKEN;
+  token: process.env.TOKEN
 });
+
+console.log(process.env.TOKEN)
 
 bot.startRTM(function(err,bot,payload) {
   if (err) {
@@ -23,19 +24,15 @@ bot.startRTM(function(err,bot,payload) {
 
 controller.hears('brewed', ['direct_mention', 'mention'], (bot, message) => {
   bot.reply(message, "That's great news! I'll tell everyone.");
-  //make a POST to /brewed
+  //client.makeCoffee();
 });
 
 controller.hears('claimed', ['direct_mention', 'mention'], (bot, message) => {
-  if (/*GET /status*/) {
-    bot.reply(message, "It's all yours, buddy!");
-    //make a PUT to /claimed
-  } else {
-    bot.reply(message, "There's no coffee to claim! Go away!")
-  }
+  bot.reply(message, "You got it boss!");
+  //client.coffeeStatus();
 })
 
 controller.hears('status', ['direct_mention'], (bot, message) => {
-  var status = /*GET /status*/ ? "" : "no "
-  bot.reply(message, "There's " + status + 'coffee available for you!');
+  bot.reply(message, "I'll check!");
+  //client.coffeeStatus();
 })

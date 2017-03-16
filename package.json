@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "repl": "node",
     "start": "node bot.js"
   },
   "dependencies": {

@@ -16,7 +16,7 @@ bot.startRTM(function(err,bot,payload) {
   }
 });
 
-controller.hears('brewed', ['direct_mention', 'mention'], (bot, message) => {
+controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {
   bot.reply(message, "That's great news! I'll tell everyone.");
   client.makeCoffee()
     .then((body) => {
@@ -50,7 +50,7 @@ controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
     });
 })
 
-controller.hears('status', ['direct_mention'], (bot, message) => {
+controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
       bot.replyWithTyping(message, "Coffee is " + body['status'] + "!");
@@ -60,8 +60,8 @@ controller.hears('status', ['direct_mention'], (bot, message) => {
     });
 })
 
-controller.hears('help', ['direct_mention'], (bot, message) => {
-  bot.reply(message, "Sup! I'm @kadfe, and I'm fairly dumb. I can recognize four whole words, though! Those are 'help,' 'brewed,' 'claim,' and 'status.'");
+controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
+  bot.reply(message, "Sup! I'm @kadfe, and I'm fairly dumb. I can recognize four whole words, though! Those are: `help` `brewed` `claim` `status`");
   bot.reply(message, "As an example, if you had said 'status' just now, I would reply:");
   client.coffeeStatus()
     .then((body) => {

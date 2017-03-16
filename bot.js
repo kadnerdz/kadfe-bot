@@ -17,47 +17,59 @@ bot.startRTM(function(err,bot,payload) {
 });
 
 controller.hears('brewed', ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "That's great news! I'll tell everyone.");
+  bot.replyWithTyping(message, "That's great news! I'll tell everyone.");
   client.makeCoffee()
     .then((body) => {
-      bot.reply(message, "OK, coffee is now " + body['status'] + ".")
+      bot.replyWithTyping(message, "OK, coffee is now " + body['status'] + ".")
     })
     .catch((error) => {
-      bot.reply(message, "Something's wrong! Specifically: `" + error + "`")
+      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`")
     });
 });
 
 controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "Let's see...");
+  bot.replyWithTyping(message, "Let's see...");
   client.coffeeStatus()
     .then((body) => {
       if (body['status'] === 'available') {
         client.claimCoffee()
           .then((body) => {
-            bot.reply(message, "OK, coffee's yours!");
+            bot.replyWithTyping(message, "OK, coffee's yours!");
           })
           .catch((error) => {
-            bot.reply(message, "Something's wrong! Specifically: `" + error + "`");
+            bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
           });
       } else if (body['status'] === 'unavailable') {
-        bot.reply(message, "No coffee for you!");
+        bot.replyWithTyping(message, "No coffee for you!");
       } else {
-        bot.reply(message, "This doesn't seem right. Yell @joe");
+        bot.replyWithTyping(message, "This doesn't seem right. Yell @joe");
       }
     })
     .catch((error) => {
-      bot.reply(message, "Something's wrong! Specifically: `" + error + "`");
+      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
     });
 })
 
 controller.hears('status', ['direct_mention'], (bot, message) => {
-  bot.reply(message, "I'll check!");
+  bot.replyWithTyping(message, "I'll check!");
   client.coffeeStatus()
     .then((body) => {
-      bot.reply(message, "Coffee is " + body['status'] + "!");
+      bot.replyWithTyping(message, "Coffee is " + body['status'] + "!");
     })
     .catch((error) => {
-      bot.reply(message, "Something's wrong! Specifically: `" + error + "`");
+      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
+    });
+})
+
+controller.hears('help', ['direct_mention'], (bot, message) => {
+  bot.replyWithTyping(message, "Sup! I'm @kadfe, and I'm fairly dumb. I can recognize four whole words, though! Those are 'help,' 'brewed,' 'claim,' and 'status.'");
+  bot.replyWithTyping(message, "As an example, if you had said 'status' just now, I would reply:");
+  client.coffeeStatus()
+    .then((body) => {
+      bot.replyWithTyping(message, ">Coffee is " + body['status'] + "!");
+    })
+    .catch((error) => {
+      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
     });
 })
 

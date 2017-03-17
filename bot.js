@@ -17,10 +17,9 @@ bot.startRTM(function(err,bot,payload) {
 });
 
 controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "That's great news! I'll tell everyone.");
   client.makeCoffee()
     .then((body) => {
-      bot.replyWithTyping(message, "OK, coffee is now " + body['status'] + ".")
+      bot.replyWithTyping(message, "That's great news! I've updated the coffee status to `available`")
     })
     .catch((error) => {
       bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`")
@@ -28,7 +27,6 @@ controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, messag
 });
 
 controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
-  bot.replyWithTyping(message, "Let's see...");
   client.coffeeStatus()
     .then((body) => {
       if (body['status'] === 'available') {
@@ -62,7 +60,7 @@ controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
 
 controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
   bot.reply(message, "Sup! I'm @kadfe, and I'm fairly dumb. I can recognize four whole words, though! Those are: `help` `brewed` `claim` `status`");
-  bot.reply(message, "As an example, if you had said 'status' just now, I would reply:");
+  bot.reply(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
   client.coffeeStatus()
     .then((body) => {
       bot.replyWithTyping(message, ">Coffee is " + body['status'] + "!");

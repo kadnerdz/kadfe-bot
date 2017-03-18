@@ -10,7 +10,8 @@ var bot = controller.spawn({
   token: process.env.TOKEN
 });
 
-var socket = client.openSocket();
+//var socket = client.openSocket();
+console.log(typeof client, typeof client.openSocket)
 
 socket.on('message', (data) => {
   console.log(data);

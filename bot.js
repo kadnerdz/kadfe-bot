@@ -16,7 +16,7 @@ socket.on('message', (data) => {
   console.log(data);
   if (data === 'available') {
     bot.say({
-      text: "Coffee is available! Write `@kadfe claim` to yank it from the crooked digits of your foes."
+      text: "Coffee is available! Write `@kadfe claim` to yank it from the crooked digits of your foes.",
       channel: "C48NXCVEY" // this is the #bottest channel
     });
   };

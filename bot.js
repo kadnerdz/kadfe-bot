@@ -1,6 +1,7 @@
 var client = require('kadfe-client');
 var Botkit = require('botkit');
 var http = require('http');
+var WebSocket = require('ws');
 
 var controller = Botkit.slackbot({
   debug: false
@@ -10,18 +11,9 @@ var bot = controller.spawn({
   token: process.env.TOKEN
 });
 
-//var socket = client.openSocket();
-console.log(client);
-
-socket.on('message', (data) => {
-  console.log(data);
-  if (data === 'available') {
-    bot.say({
-      text: "Coffee is available! Write `@kadfe claim` to yank it from the crooked digits of your foes.",
-      channel: "C48NXCVEY" // this is the #bottest channel
-    });
-  };
-});
+var socket = new WebSocket('ws://kadfe-server.herokuapp.com', {
+    perMessageDeflate: false
+})
 
 socket.on('close', () => {
   console.log('disconnected');
@@ -31,6 +23,16 @@ bot.startRTM(function(err,bot,payload) {
   if (err) {
     throw new Error('Could not connect to Slack');
   }
+});
+
+socket.on('message', (data) => {
+  console.log(data);
+  if (data === 'available') {
+    bot.say({
+      text: "Coffee is available! Write `@kadfe claim` to yank it from the crooked digits of your foes.",
+      channel: "C48NXCVEY" // this is the #bottest channel
+    });
+  };
 });
 
 controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {

@@ -11,7 +11,7 @@ var bot = controller.spawn({
 });
 
 //var socket = client.openSocket();
-console.log(typeof client, typeof client.openSocket)
+console.log(client);
 
 socket.on('message', (data) => {
   console.log(data);

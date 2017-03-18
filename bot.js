@@ -10,6 +10,17 @@ var bot = controller.spawn({
   token: process.env.TOKEN
 });
 
+/*var socket = client.openSocket();
+
+socket.on('message', (data) => {
+  if (data === 'available') {
+    bot.say({
+      text: "Coffee is available! Write `@kadfe claim` to yank it from the crooked digits of your foes."
+      channel: "C48NXCVEY" // this is the #bottest channel
+    });
+  };
+});*/
+
 bot.startRTM(function(err,bot,payload) {
   if (err) {
     throw new Error('Could not connect to Slack');

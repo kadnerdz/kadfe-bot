@@ -3,6 +3,8 @@ var Botkit = require('botkit');
 var http = require('http');
 var WebSocket = require('ws');
 
+console.log(client);
+
 var controller = Botkit.slackbot({
   debug: false
 })

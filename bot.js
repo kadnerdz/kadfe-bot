@@ -11,7 +11,7 @@ var bot = controller.spawn({
   token: process.env.TOKEN
 });
 
-var ws = new WebSocket(`ws://${process.env.KADFE_HOST}/coffee`)
+var ws = new WebSocket(`wss://${process.env.KADFE_HOST}`)
 
 bot.startRTM(function(err,bot,payload) {
   if (err) {

@@ -79,12 +79,16 @@ ws.on('open', () => {
 })
 
 ws.on('message', (message) => {
-  console.log(message + '//' + typeof message)
+  console.log(message + '//' + typeof message);
   if (message === 'available') {
-    bot.say('@here: coffee is available!')
+    bot.say('@here: coffee is available!');
   } if (message === 'unavailable') {
-    bot.say('@here: coffee is claimed!')
+    bot.say('@here: coffee is claimed!');
   }
+})
+
+ws.on('error', (error) => {
+  console.log(error);
 })
 
 http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

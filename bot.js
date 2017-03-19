@@ -11,8 +11,6 @@ var bot = controller.spawn({
   token: process.env.TOKEN
 });
 
-var ws = new WebSocket(`wss://${process.env.KADFE_HOST}`)
-
 bot.startRTM(function(err,bot,payload) {
   if (err) {
     throw new Error('Could not connect to Slack');
@@ -72,6 +70,8 @@ controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
       bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
     });
 })
+
+var ws = new WebSocket(`wss://${process.env.KADFE_HOST}`)
 
 ws.on('open', () => {
   ws.send('hello!');

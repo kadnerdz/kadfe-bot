@@ -1,6 +1,7 @@
 var client = require('kadfe-client');
 var Botkit = require('botkit');
 var http = require('http');
+var WebSocket = require('ws');
 
 var controller = Botkit.slackbot({
   debug: false
@@ -9,6 +10,8 @@ var controller = Botkit.slackbot({
 var bot = controller.spawn({
   token: process.env.TOKEN
 });
+
+var ws = new WebSocket(`ws://${process.env.KADFE_HOST}`)
 
 bot.startRTM(function(err,bot,payload) {
   if (err) {
@@ -68,6 +71,20 @@ controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
     .catch((error) => {
       bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
     });
+})
+
+ws.on('open', () => {
+  ws.send('hello!');
+  console.log('socket opened');
+})
+
+ws.on('message', (message) => {
+  console.log(message + '//' + typeof message)
+  if (message === 'available') {
+    bot.say('@here: coffee is available!')
+  } if (message === 'unavailable') {
+    bot.say('@here: coffee is claimed!')
+  }
 })
 
 http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

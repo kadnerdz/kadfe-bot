@@ -81,8 +81,8 @@ ws.on('open', () => {
 })
 
 ws.on('message', (message) => {
-  console.log(message + '//' + typeof message);
   if (message === 'available') {
+    console.log('tru');
     bot.say('@here: coffee is available!');
   } if (message === 'unavailable') {
     bot.say('@here: coffee is claimed!');

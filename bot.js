@@ -84,9 +84,9 @@ ws.on('message', (message) => {
   console.log(message)
   if (message === 'available') {
     console.log('tru');
-    bot.say('@here: coffee is available!');
+    bot.reply('@here: coffee is available!');
   } if (message === 'unavailable') {
-    bot.say('@here: coffee is claimed!');
+    bot.reply('@here: coffee is claimed!');
   }
 })
 

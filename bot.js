@@ -3,8 +3,6 @@ var Botkit = require('botkit');
 var http = require('http');
 var WebSocket = require('ws');
 
-console.log(client);
-
 var controller = Botkit.slackbot({
   debug: false
 })
@@ -81,20 +79,18 @@ controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {
         bot.replyWithTyping(message, "There's coffee by the way.");
       }
     })
-    .catch((error) => {});
+    .catch();
 })
 
 var ws;
 client.openSocket()
   .then((socket) => {
     ws = socket.on('message', (message) => {
-      console.log(message)
+      console.log(`coffee is ${message}`)
       if (message === 'available') {
-        console.log('tru');
-        bot.say('@here: coffee is available!');
+        // figure out how to post to a channel without needing a reply
       } if (message === 'unavailable') {
-        console.log('false')
-        bot.say('@here: coffee is claimed!');
+        // figure out how to post to a channel without needing a reply
       }
     })
   }).catch((error) => {

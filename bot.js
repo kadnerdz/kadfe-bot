@@ -73,25 +73,21 @@ controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
     });
 })
 
-var ws = new WebSocket(`wss://${process.env.KADFE_HOST}`)
-
-ws.on('open', () => {
-  ws.send('hello!');
-  console.log('socket opened');
-})
-
-ws.on('message', (message) => {
-  console.log(message)
-  if (message === 'available') {
-    console.log('tru');
-    bot.reply('@here: coffee is available!');
-  } if (message === 'unavailable') {
-    bot.reply('@here: coffee is claimed!');
-  }
-})
-
-ws.on('error', (error) => {
-  console.log(error);
-})
+var ws;
+client.openSocket()
+  .then((socket) => {
+    ws = socket.on('message', (message) => {
+      console.log(message)
+      if (message === 'available') {
+        console.log('tru');
+        bot.say('@here: coffee is available!');
+      } if (message === 'unavailable') {
+        console.log('false')
+        bot.say('@here: coffee is claimed!');
+      }
+    })
+  }).catch((error) => {
+    console.log(`websocket attempt failed: ${error}`)
+  });
 
 http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

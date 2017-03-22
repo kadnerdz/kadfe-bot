@@ -1129,7 +1129,7 @@ jws@^3.0.0, jws@^3.1.4:
 
 "kadfe-client@https://github.com/kadnerdz/kadfe-client.git":
   version "0.0.3"
-  resolved "https://github.com/kadnerdz/kadfe-client.git#ea85af3e58fec79105ab5d10698c68cc8087fa5d"
+  resolved "https://github.com/kadnerdz/kadfe-client.git#492598543f0432a6479d379cad521eb3effb3adc"
   dependencies:
     request "^2.79.0"
     ws "^2.2.1"
@@ -1452,8 +1452,8 @@ q@0.9.7:
   resolved "https://registry.yarnpkg.com/q/-/q-0.9.7.tgz#4de2e6cb3b29088c9e4cbc03bf9d42fb96ce2f75"
 
 q@^1.1.2:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/q/-/q-1.4.1.tgz#55705bcd93c5f3673530c2c2cbc0c2b3addc286e"
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
 qs@6.4.0, qs@~6.4.0:
   version "6.4.0"

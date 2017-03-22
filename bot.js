@@ -73,6 +73,17 @@ controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
     });
 })
 
+controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {
+  bot.reply(message, "...I love to dance!");
+  client.coffeeStatus()
+    .then((body) => {
+      if (body['status'] === 'available') {
+        bot.replyWithTyping(message, "There's coffee by the way.");
+      }
+    })
+    .catch((error) => {});
+})
+
 var ws;
 client.openSocket()
   .then((socket) => {

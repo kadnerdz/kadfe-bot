@@ -20,7 +20,6 @@ bot.startRTM(function(err,bot,payload) {
 controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {
   client.makeCoffee()
     .then((body) => {
-      console.log(message)
       bot.replyWithTyping(message, "That's great news! I've updated the coffee status to `available`")
     })
     .catch((error) => {
@@ -34,7 +33,7 @@ controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
       if (body['status'] === 'available') {
         client.claimCoffee()
           .then((body) => {
-            bot.replyWithTyping(message, "OK, coffee's yours!");
+            bot.replyWithTyping(message, `OK, coffee goes to @${message.user}!`);
           })
           .catch((error) => {
             bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");

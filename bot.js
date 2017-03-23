@@ -33,7 +33,7 @@ controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
       if (body['status'] === 'available') {
         client.claimCoffee()
           .then((body) => {
-            bot.replyWithTyping(message, `OK, coffee goes to @${message.user}!`);
+            bot.replyWithTyping(message, `OK, coffee goes to <@${message.user}>!`);
           })
           .catch((error) => {
             bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");

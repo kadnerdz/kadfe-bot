@@ -20,6 +20,7 @@ bot.startRTM(function(err,bot,payload) {
 controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {
   client.makeCoffee()
     .then((body) => {
+      console.log(message)
       bot.replyWithTyping(message, "That's great news! I've updated the coffee status to `available`")
     })
     .catch((error) => {

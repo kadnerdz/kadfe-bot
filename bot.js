@@ -50,11 +50,11 @@ controller.hears(['clear', 'reset', 'gone'], ['direct_mention', 'mention'], (bot
   claimant = null;
   client.clearCoffee()
     .then((body) => {
-      bot.replyWithTyping(message, claimant ? 'OK, all states reset.');
+      bot.replyWithTyping(message, 'OK, all states reset.');
     })
     .catch((error) => {
-      if (JSON.parse(error)['message']) {
-        bot.replyWithTyping(message, claimant ? 'OK, all states reset.');
+      if (JSON.parse(error)['message'] === 'coffee already unavailable') {
+        bot.replyWithTyping(message, 'OK, all states reset.');
       } else {
         bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
       }

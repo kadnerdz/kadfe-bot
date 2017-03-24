@@ -120,4 +120,15 @@ client.openSocket()
     console.log(`websocket attempt failed: ${error}`)
   });
 
+setInterval(() => {
+  client.coffeeStatus()
+    .then()
+    .catch((error) => {
+      bot.say({
+        text: `Something's wrong! Specifically: \`${error}\``,
+        channel: 'C48NXCVEY'
+      });
+    });
+}, 30 * 60 * 1000)
+
 http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

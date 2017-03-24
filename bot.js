@@ -84,7 +84,7 @@ controller.hears(['help'], ['direct_mention', 'mention'], (bot, message) => {
       .catch((error) => {
         bot.replyWithTyping(message, `>Something's wrong! Specifically: \`${error}\``);
       });
-  }, 500);
+  }, 1000);
 })
 
 controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {

@@ -17,35 +17,32 @@ bot.startRTM(function(err,bot,payload) {
   }
 });
 
+var claimant = null;
+
 controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {
   client.makeCoffee()
     .then((body) => {
       bot.replyWithTyping(message, "That's great news! I've updated the coffee status to `available`")
     })
     .catch((error) => {
-      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`")
+      bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``)
     });
 });
 
 controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
-      if (body['status'] === 'available') {
-        client.claimCoffee()
-          .then((body) => {
-            bot.replyWithTyping(message, `OK, coffee goes to <@${message.user}>!`);
-          })
-          .catch((error) => {
-            bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
-          });
-      } else if (body['status'] === 'unavailable') {
-        bot.replyWithTyping(message, "No coffee for you!");
+      if (body['status'] === 'available' && !claimant) {
+        claimant = message.user
+        bot.replyWithTyping(message, `OK, coffee goes to <@${claimant}>!`);
+      } else if (body['status'] === 'available') {
+        bot.replyWithTyping(message, `This coffee belongs to <@${claimant}`);
       } else {
         bot.replyWithTyping(message, "This doesn't seem right. Yell @joe");
       }
     })
     .catch((error) => {
-      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
+      bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
     });
 })
 
@@ -53,9 +50,12 @@ controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
       bot.replyWithTyping(message, "Coffee is " + body['status'] + "!");
+      if (body['status'] === 'available') {
+        bot.replyWithTyping(message, claimant ? `And it belongs to <@${claimant}!` : "And it's open!")
+      }
     })
     .catch((error) => {
-      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
+      bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
     });
 })
 
@@ -67,7 +67,7 @@ controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
       bot.replyWithTyping(message, ">Coffee is " + body['status'] + "!");
     })
     .catch((error) => {
-      bot.replyWithTyping(message, "Something's wrong! Specifically: `" + error + "`");
+      bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
     });
 })
 
@@ -75,7 +75,7 @@ controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {
   bot.reply(message, "...I love to dance!");
   client.coffeeStatus()
     .then((body) => {
-      if (body['status'] === 'available') {
+      if (body['status'] === 'available' && !claimant) {
         bot.replyWithTyping(message, "There's coffee by the way.");
       }
     })

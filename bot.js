@@ -75,8 +75,7 @@ controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
 })
 
 controller.hears(['help'], ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "Hi! I'm @kadfe. I can recognize a few words! Those are: `brewed` `claim` `clear` `status` `help`");
-  bot.reply(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
+  bot.reply(message, "Hi! I'm @kadfe. I can recognize a few words! Those are: `brewed` `claim` `clear` `status` `help` \nAs an example, if you had said `@kadfe status` just now, I would reply:");
   setTimeout(() => {
     client.coffeeStatus()
       .then((body) => {

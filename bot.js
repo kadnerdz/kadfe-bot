@@ -129,6 +129,6 @@ setInterval(() => {
         channel: 'C48NXCVEY'
       });
     });
-}, 30 * 60 * 1000)
+}, 60 * 1000)
 
 http.createServer().listen(process.env.PORT || 3000).on('error', console.log);

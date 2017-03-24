@@ -75,15 +75,17 @@ controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
 })
 
 controller.hears(['help'], ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "Hi! I'm @kadfe. I can recognize a few words! Those are: `brewed``claim``clear``status``help`");
-  bot.reply(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
-  client.coffeeStatus()
-    .then((body) => {
-      bot.replyWithTyping(message, `>Coffee is ${body['status']}!`);
-    })
-    .catch((error) => {
-      bot.replyWithTyping(message, `>Something's wrong! Specifically: \`${error}\``);
-    });
+  bot.reply(message, "Hi! I'm @kadfe. I can recognize a few words! Those are: `brewed` `claim` `clear` `status` `help`");
+  bot.replyWithTyping(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
+  setTimeout(() => {
+    client.coffeeStatus()
+      .then((body) => {
+        bot.replyWithTyping(message, `>Coffee is ${body['status']}!`);
+      })
+      .catch((error) => {
+        bot.replyWithTyping(message, `>Something's wrong! Specifically: \`${error}\``);
+      });
+  }, 500);
 })
 
 controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {

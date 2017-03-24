@@ -131,4 +131,6 @@ setInterval(() => {
     });
 }, 60 * 1000)
 
-http.createServer().listen(process.env.PORT || 3000).on('error', console.log);
+http.createServer((req, res) => {
+  res.end();
+}).listen(process.env.PORT || 3000).on('error', console.log);

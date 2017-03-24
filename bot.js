@@ -21,37 +21,52 @@ var claimant = null;
 
 controller.hears(['brewed', 'made'], ['direct_mention', 'mention'], (bot, message) => {
   client.makeCoffee()
-    .then((body) => {
-      bot.replyWithTyping(message, "That's great news! I've updated the coffee status to `available`")
-    })
+    .then()
     .catch((error) => {
       bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``)
     });
 });
 
-controller.hears('claim', ['direct_mention', 'mention'], (bot, message) => {
+controller.hears(['claim', 'mine'], ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
       if (body['status'] === 'available' && !claimant) {
-        claimant = message.user
+        claimant = message.user;
         bot.replyWithTyping(message, `OK, coffee goes to <@${claimant}>!`);
-      } else if (body['status'] === 'available') {
-        bot.replyWithTyping(message, `This coffee belongs to <@${claimant}`);
+      } else if (body['status'] === 'available' && claimant != message.user) {
+        bot.replyWithTyping(message, `This coffee belongs to <@${claimant}>. Shoo!`);
+      } else if (body['status'] === 'available' && claimant === message.user) {
+        bot.replyWithTyping(message, `It's yours already. Get moving!!`);
       } else {
-        bot.replyWithTyping(message, "This doesn't seem right. Yell @joe");
+        bot.replyWithTyping(message, "This doesn't seem right. Please yell @joe.");
       }
     })
     .catch((error) => {
       bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
+    });
+})
+
+controller.hears(['clear', 'reset', 'gone'], ['direct_mention', 'mention'], (bot, message) => {
+  claimant = null;
+  client.clearCoffee()
+    .then((body) => {
+      bot.replyWithTyping(message, claimant ? 'OK, all states reset.');
+    })
+    .catch((error) => {
+      if (JSON.parse(error)['message']) {
+        bot.replyWithTyping(message, claimant ? 'OK, all states reset.');
+      } else {
+        bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
+      }
     });
 })
 
 controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
-      bot.replyWithTyping(message, "Coffee is " + body['status'] + "!");
+      bot.reply(message, `Coffee is ${body['status']}!`);
       if (body['status'] === 'available') {
-        bot.replyWithTyping(message, claimant ? `And it belongs to <@${claimant}!` : "And it's open!")
+        bot.replyWithTyping(message, claimant ? `And it belongs to <@${claimant}>!` : "And it's open!")
       }
     })
     .catch((error) => {
@@ -59,15 +74,15 @@ controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
     });
 })
 
-controller.hears('help', ['direct_mention', 'mention'], (bot, message) => {
-  bot.reply(message, "Sup! I'm @kadfe, and I'm fairly dumb. I can recognize four whole words, though! Those are: `help` `brewed` `claim` `status`");
+controller.hears(['help'], ['direct_mention', 'mention'], (bot, message) => {
+  bot.reply(message, "Hi! I'm @kadfe. I can recognize a few words! Those are: `brewed``claim``clear``status``help`");
   bot.reply(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
   client.coffeeStatus()
     .then((body) => {
-      bot.replyWithTyping(message, ">Coffee is " + body['status'] + "!");
+      bot.replyWithTyping(message, `>Coffee is ${body['status']}!`);
     })
     .catch((error) => {
-      bot.replyWithTyping(message, `Something's wrong! Specifically: \`${error}\``);
+      bot.replyWithTyping(message, `>Something's wrong! Specifically: \`${error}\``);
     });
 })
 
@@ -76,7 +91,7 @@ controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
       if (body['status'] === 'available' && !claimant) {
-        bot.replyWithTyping(message, "There's coffee by the way.");
+        bot.replyWithTyping(message, "(There's coffee, by the way.)");
       }
     })
     .catch();
@@ -88,9 +103,16 @@ client.openSocket()
     ws = socket.on('message', (message) => {
       console.log(`coffee is ${message}`)
       if (message === 'available') {
-        // figure out how to post to a channel without needing a reply
+        bot.say({
+          text: 'Coffee is available!!!',
+          channel: 'C48NXCVEY'
+        });
       } if (message === 'unavailable') {
-        // figure out how to post to a channel without needing a reply
+        bot.say({
+          text: 'Bye coffee!!!',
+          channel: 'C48NXCVEY'
+        });
+        claimant = null;
       }
     })
   }).catch((error) => {

@@ -76,7 +76,7 @@ controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
 
 controller.hears(['help'], ['direct_mention', 'mention'], (bot, message) => {
   bot.reply(message, "Hi! I'm @kadfe. I can recognize a few words! Those are: `brewed` `claim` `clear` `status` `help`");
-  bot.replyWithTyping(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
+  bot.reply(message, "As an example, if you had said `@kadfe status` just now, I would reply:");
   setTimeout(() => {
     client.coffeeStatus()
       .then((body) => {
@@ -106,12 +106,12 @@ client.openSocket()
       console.log(`coffee is ${message}`)
       if (message === 'available') {
         bot.say({
-          text: 'Coffee is available!!!',
+          text: 'Coffee!!!',
           channel: 'C48NXCVEY'
         });
       } if (message === 'unavailable') {
         bot.say({
-          text: 'Bye coffee!!!',
+          text: 'No coffee!!!',
           channel: 'C48NXCVEY'
         });
         claimant = null;

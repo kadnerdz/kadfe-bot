@@ -64,9 +64,10 @@ controller.hears(['clear', 'reset', 'gone'], ['direct_mention', 'mention'], (bot
 controller.hears('status', ['direct_mention', 'mention'], (bot, message) => {
   client.coffeeStatus()
     .then((body) => {
-      bot.reply(message, `Coffee is ${body['status']}!`);
       if (body['status'] === 'available') {
-        bot.replyWithTyping(message, claimant ? `And it belongs to <@${claimant}>!` : "And it's open!")
+        bot.replyWithTyping(message, claimant ? `<@${claimant}> needs to pick up their coffee!` : "There's coffee in dire need of claiming!")
+      } else {
+        bot.reply(message, `Coffee is ${body['status']}!`);
       }
     })
     .catch((error) => {

@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@ciscospark/common@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/common/-/common-0.7.69.tgz#06840be3f5f1b0f740d2f264266c715a5338ae0c"
+"@ciscospark/common@^0.7.71":
+  version "0.7.71"
+  resolved "https://registry.yarnpkg.com/@ciscospark/common/-/common-0.7.71.tgz#5e7d0ba3a4ed9fa167fc9032ca75267412f97d07"
   dependencies:
     babel-polyfill "^6.3.14"
     babel-runtime "^6.3.19"
@@ -13,14 +13,14 @@
     lodash "^4.13.1"
     urlsafe-base64 "^1.0.0"
 
-"@ciscospark/http-core@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/http-core/-/http-core-0.7.69.tgz#27431aadb30322efbd34aeda4c4919fa989f23a0"
+"@ciscospark/http-core@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/http-core/-/http-core-0.7.77.tgz#2a082f4365cab98c5244e6236736999ec9c2d382"
   dependencies:
+    "@ciscospark/common" "^0.7.71"
     babel-runtime "^6.3.19"
     btoa "^1.1.2"
     denodeify "^1.2.1"
-    extend-error "git://github.com/ianwremmel/extend-error.git"
     file-type "^3.6.0"
     global "^4.3.1"
     is-function "^1.0.1"
@@ -31,73 +31,72 @@
     uuid "^2.0.1"
     xtend "^4.0.1"
 
-"@ciscospark/plugin-feature@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-feature/-/plugin-feature-0.7.69.tgz#5fafda265e6e1f5a0c2d96f08fdec11668e423f9"
+"@ciscospark/plugin-feature@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-feature/-/plugin-feature-0.7.77.tgz#0e55f7d6ff0e3d276f4913b635660bdaa05b2f2e"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/plugin-wdm" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/plugin-wdm" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
     babel-runtime "^6.3.19"
     lodash "^4.13.1"
 
-"@ciscospark/plugin-locus@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-locus/-/plugin-locus-0.7.69.tgz#7fd2eb7c1a1b6f380fdeb8955de52c7e73a1eb91"
+"@ciscospark/plugin-locus@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-locus/-/plugin-locus-0.7.77.tgz#730381f64d21478c00db8b60840392dd8c0eec09"
   dependencies:
-    "@ciscospark/plugin-mercury" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/plugin-mercury" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
     babel-runtime "^6.3.19"
     lodash "^4.13.1"
 
-"@ciscospark/plugin-logger@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-logger/-/plugin-logger-0.7.69.tgz#8f9c4f8f4f084401731a9aa4b5ea297b2498bfa3"
+"@ciscospark/plugin-logger@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-logger/-/plugin-logger-0.7.77.tgz#2f5680e7d530c7183e8e3e501171214204b0858d"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/spark-core" "^0.7.77"
     babel-runtime "^6.3.19"
     lodash "^4.13.1"
 
-"@ciscospark/plugin-mercury@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-mercury/-/plugin-mercury-0.7.69.tgz#6a93505992c7b31eb3f5e88db4e392a8d243775f"
+"@ciscospark/plugin-mercury@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-mercury/-/plugin-mercury-0.7.77.tgz#f2a8c26d92e223458849b9b3bf978a28f6143fee"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/http-core" "^0.7.69"
-    "@ciscospark/plugin-feature" "^0.7.69"
-    "@ciscospark/plugin-wdm" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/http-core" "^0.7.77"
+    "@ciscospark/plugin-feature" "^0.7.77"
+    "@ciscospark/plugin-wdm" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
     babel-runtime "^6.3.19"
     backoff "^2.5.0"
     core-decorators "^0.12.3"
     envify "^3.4.0"
-    extend-error "git://github.com/ianwremmel/extend-error.git"
     lodash "^4.13.1"
     string "^3.3.1"
     uuid "^2.0.1"
     ws "^1.1.0"
 
-"@ciscospark/plugin-metrics@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-metrics/-/plugin-metrics-0.7.69.tgz#16c6a8e252c09fa8bec8f2c6efac88bcbb607b78"
+"@ciscospark/plugin-metrics@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-metrics/-/plugin-metrics-0.7.77.tgz#ccf0bd93f15461f98e4942036d4db28f404c8c40"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/plugin-wdm" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/plugin-wdm" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
     babel-runtime "^6.3.19"
     core-decorators "^0.12.3"
     envify "^3.4.0"
     lodash "^4.13.1"
 
-"@ciscospark/plugin-phone@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-phone/-/plugin-phone-0.7.69.tgz#2e7a5a0f81efd128894f3c69d3370c02e71f6469"
+"@ciscospark/plugin-phone@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-phone/-/plugin-phone-0.7.77.tgz#14571c5813d5094c02d35a2df0e3a42573767756"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/plugin-locus" "^0.7.69"
-    "@ciscospark/plugin-metrics" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/plugin-locus" "^0.7.77"
+    "@ciscospark/plugin-metrics" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
     ampersand-state "^5.0.2"
     babel-runtime "^6.3.19"
     detectrtc "^1.3.4"
@@ -107,39 +106,38 @@
     uuid "^3.0.1"
     webrtc-adapter "^3.2.0"
 
-"@ciscospark/plugin-wdm@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-wdm/-/plugin-wdm-0.7.69.tgz#b17cccac1061b551852fbb21ec374b3d2bb996da"
+"@ciscospark/plugin-wdm@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/plugin-wdm/-/plugin-wdm-0.7.77.tgz#98bdd02c4526975cc3526413358f0fd98f4cfa0d"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/http-core" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/http-core" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
     ampersand-collection "^2.0.0"
     ampersand-state "^5.0.0"
     babel-runtime "^6.3.19"
     envify "^3.4.0"
     lodash "^4.13.1"
 
-"@ciscospark/spark-core@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/spark-core/-/spark-core-0.7.69.tgz#25a8a1fd78607e274c5344e729b46441537ecd1d"
+"@ciscospark/spark-core@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/spark-core/-/spark-core-0.7.77.tgz#a585a1dfc56def1092867d963e76c6b4235a0bb0"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/http-core" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/http-core" "^0.7.77"
     ampersand-events "^2.0.0"
     ampersand-state "^5.0.0"
     babel-runtime "^6.3.19"
     envify "^3.4.0"
-    extend-error "git://github.com/ianwremmel/extend-error.git"
     lodash "^4.13.1"
     string "^3.3.3"
     uuid "^2.0.1"
 
-"@ciscospark/storage-adapter-local-storage@^0.7.69":
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/@ciscospark/storage-adapter-local-storage/-/storage-adapter-local-storage-0.7.69.tgz#bec95daf4983215cce27754481a6b75e636e9e29"
+"@ciscospark/storage-adapter-local-storage@^0.7.77":
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/@ciscospark/storage-adapter-local-storage/-/storage-adapter-local-storage-0.7.77.tgz#63b18a6c2a3b58ac7185c6335e007ab9e6d322e3"
   dependencies:
-    "@ciscospark/spark-core" "^0.7.69"
+    "@ciscospark/spark-core" "^0.7.77"
     babel-runtime "^6.3.19"
     lodash "^4.13.1"
 
@@ -262,8 +260,8 @@ async@^1.5.2:
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
 async@^2.0.0-rc.5, async@^2.0.1:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.1.5.tgz#e587c68580994ac67fc56ff86d3ac56bdbe810bc"
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.3.0.tgz#1013d1051047dd320fe24e494d5c66ecaf6147d9"
   dependencies:
     lodash "^4.14.0"
 
@@ -469,15 +467,15 @@ chrono-node@^1.1.3:
     moment "^2.10.3"
 
 ciscospark@^0.7.31:
-  version "0.7.69"
-  resolved "https://registry.yarnpkg.com/ciscospark/-/ciscospark-0.7.69.tgz#c683d7e393c47ecf742400871452cd32a64b90b8"
+  version "0.7.77"
+  resolved "https://registry.yarnpkg.com/ciscospark/-/ciscospark-0.7.77.tgz#d1fe4a0a64e564d47237ad5146aed62e1f0b84fb"
   dependencies:
-    "@ciscospark/common" "^0.7.69"
-    "@ciscospark/http-core" "^0.7.69"
-    "@ciscospark/plugin-logger" "^0.7.69"
-    "@ciscospark/plugin-phone" "^0.7.69"
-    "@ciscospark/spark-core" "^0.7.69"
-    "@ciscospark/storage-adapter-local-storage" "^0.7.69"
+    "@ciscospark/common" "^0.7.71"
+    "@ciscospark/http-core" "^0.7.77"
+    "@ciscospark/plugin-logger" "^0.7.77"
+    "@ciscospark/plugin-phone" "^0.7.77"
+    "@ciscospark/spark-core" "^0.7.77"
+    "@ciscospark/storage-adapter-local-storage" "^0.7.77"
     babel-polyfill "^6.6.1"
     babel-runtime "^6.3.19"
     envify "^3.4.0"
@@ -606,17 +604,17 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2, debug@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
-  dependencies:
-    ms "0.7.2"
-
-debug@2.2.0:
+debug@2, debug@2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
     ms "0.7.1"
+
+debug@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
+  dependencies:
+    ms "0.7.2"
 
 debug@2.6.3:
   version "2.6.3"
@@ -747,14 +745,6 @@ express@^4.13.3:
     type-is "~1.6.14"
     utils-merge "1.0.0"
     vary "~1.1.0"
-
-"extend-error@git://github.com/ianwremmel/extend-error.git":
-  version "0.0.2"
-  resolved "git://github.com/ianwremmel/extend-error.git#d9626f4005cd3b94d3df3d24cd1b59fd6df09ddd"
-  dependencies:
-    lodash.clonedeep "~3.0.0"
-    lodash.forown "~3.0.1"
-    lodash.identity "~3.0.0"
 
 extend@3, extend@~3.0.0:
   version "3.0.0"
@@ -967,9 +957,9 @@ invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
 
-ipaddr.js@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.2.0.tgz#8aba49c9192799585bdd643e0ccb50e8ae777ba4"
+ipaddr.js@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.3.0.tgz#1e03a52fdad83a8bbb2b25cbf4998b4cffcd3dec"
 
 is-buffer@~1.1.1:
   version "1.1.5"
@@ -1128,8 +1118,8 @@ jws@^3.0.0, jws@^3.1.4:
     safe-buffer "^5.0.1"
 
 "kadfe-client@https://github.com/kadnerdz/kadfe-client.git":
-  version "0.0.3"
-  resolved "https://github.com/kadnerdz/kadfe-client.git#f03e814649f8da574ea8e085ec16d968a9c492ae"
+  version "0.0.4"
+  resolved "https://github.com/kadnerdz/kadfe-client.git#c750427a67e57d2e4156eee44e9e238e0aab53b1"
   dependencies:
     request "^2.79.0"
     ws "^2.2.1"
@@ -1152,83 +1142,6 @@ localtunnel@^1.8.1:
     openurl "1.1.0"
     request "2.78.0"
     yargs "3.29.0"
-
-lodash._arraycopy@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash._arraycopy/-/lodash._arraycopy-3.0.0.tgz#76e7b7c1f1fb92547374878a562ed06a3e50f6e1"
-
-lodash._arrayeach@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash._arrayeach/-/lodash._arrayeach-3.0.0.tgz#bab156b2a90d3f1bbd5c653403349e5e5933ef9e"
-
-lodash._baseassign@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/lodash._baseassign/-/lodash._baseassign-3.2.0.tgz#8c38a099500f215ad09e59f1722fd0c52bfe0a4e"
-  dependencies:
-    lodash._basecopy "^3.0.0"
-    lodash.keys "^3.0.0"
-
-lodash._baseclone@^3.0.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/lodash._baseclone/-/lodash._baseclone-3.3.0.tgz#303519bf6393fe7e42f34d8b630ef7794e3542b7"
-  dependencies:
-    lodash._arraycopy "^3.0.0"
-    lodash._arrayeach "^3.0.0"
-    lodash._baseassign "^3.0.0"
-    lodash._basefor "^3.0.0"
-    lodash.isarray "^3.0.0"
-    lodash.keys "^3.0.0"
-
-lodash._basecopy@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz#8da0e6a876cf344c0ad8a54882111dd3c5c7ca36"
-
-lodash._basefor@^3.0.0:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/lodash._basefor/-/lodash._basefor-3.0.3.tgz#7550b4e9218ef09fad24343b612021c79b4c20c2"
-
-lodash._bindcallback@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
-
-lodash._getnative@^3.0.0:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
-
-lodash.clonedeep@~3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-3.0.2.tgz#a0a1e40d82a5ea89ff5b147b8444ed63d92827db"
-  dependencies:
-    lodash._baseclone "^3.0.0"
-    lodash._bindcallback "^3.0.0"
-
-lodash.forown@~3.0.1:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.forown/-/lodash.forown-3.0.2.tgz#90e29cdf7893048dd0529a333e304896b0bac28e"
-  dependencies:
-    lodash._basefor "^3.0.0"
-    lodash._bindcallback "^3.0.0"
-    lodash.keys "^3.0.0"
-
-lodash.identity@~3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash.identity/-/lodash.identity-3.0.0.tgz#ad7bc6a4e647d79c972e1b80feef7af156267876"
-
-lodash.isarguments@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
-
-lodash.isarray@^3.0.0:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
-
-lodash.keys@^3.0.0:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
-  dependencies:
-    lodash._getnative "^3.0.0"
-    lodash.isarguments "^3.0.0"
-    lodash.isarray "^3.0.0"
 
 lodash.once@^4.0.0:
   version "4.1.1"
@@ -1275,7 +1188,7 @@ mime-db@~1.27.0:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.27.0.tgz#820f572296bbd20ec25ed55e5b5de869e5436eb1"
 
-mime-types@^2.1.11, mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.13, mime-types@~2.1.7:
+mime-types@^2.1.11, mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.7:
   version "2.1.15"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.15.tgz#a4ebf5064094569237b8cf70046776d09fc92aed"
   dependencies:
@@ -1433,11 +1346,11 @@ promise@^7.1.1:
     asap "~2.0.3"
 
 proxy-addr@~1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.3.tgz#dc97502f5722e888467b3fa2297a7b1ff47df074"
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.4.tgz#27e545f6960a44a627d9b44467e35c1b6b4ce2f3"
   dependencies:
     forwarded "~0.1.0"
-    ipaddr.js "1.2.0"
+    ipaddr.js "1.3.0"
 
 punycode@1.3.2:
   version "1.3.2"
@@ -1623,7 +1536,7 @@ rsa-pem-from-mod-exp@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/rsa-pem-from-mod-exp/-/rsa-pem-from-mod-exp-0.8.4.tgz#362a42c6d304056d493b3f12bceabb2c6576a6d4"
 
-safe-buffer@^5.0.1:
+safe-buffer@^5.0.1, safe-buffer@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
 
@@ -1808,11 +1721,11 @@ twilio@^2.9.1:
     underscore "1.x"
 
 type-is@~1.6.14:
-  version "1.6.14"
-  resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.14.tgz#e219639c17ded1ca0789092dd54a03826b817cb2"
+  version "1.6.15"
+  resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.15.tgz#cab10fb4909e441c82842eafe1ad646c81804410"
   dependencies:
     media-typer "0.3.0"
-    mime-types "~2.1.13"
+    mime-types "~2.1.15"
 
 typedarray@~0.0.5:
   version "0.0.6"
@@ -1920,9 +1833,10 @@ ws@^1.1.0, ws@^1.1.1:
     ultron "1.0.x"
 
 ws@^2.2.1:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-2.2.2.tgz#aa26daf39c52b20ed716e3447f8641494a726b01"
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-2.2.3.tgz#f36c9719a56dff813f455af912a2078145bbd940"
   dependencies:
+    safe-buffer "~5.0.1"
     ultron "~1.1.0"
 
 "xtend@>=4.0.0 <4.1.0-0", xtend@^4.0.0, xtend@^4.0.1:

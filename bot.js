@@ -106,13 +106,9 @@ client.openSocket()
       if (message === 'available') {
         bot.say({
           text: 'Coffee!!!',
-          channel: 'C48NXCVEY'
+          channel: process.env.KADFE_CHANNEL
         });
       } if (message === 'unavailable') {
-        bot.say({
-          text: 'No coffee!!!',
-          channel: 'C48NXCVEY'
-        });
         claimant = null;
       }
     })

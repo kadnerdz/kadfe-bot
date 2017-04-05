@@ -1,7 +1,8 @@
 {
   "scripts": {
     "repl": "node",
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "app": "KADFE_HOST=kadfe-server.herokuapp.com KADFE_SSL=true node bot.js"
   },
   "dependencies": {
     "botkit": "^0.5.1",

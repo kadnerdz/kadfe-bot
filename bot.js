@@ -105,6 +105,7 @@ controller.hears('love', ['direct_mention', 'mention'], (bot, message) => {
 })
 
 var ws;
+const channel = process.env.KADFE_CHANNEL
 client.openSocket()
   .then((socket) => {
     ws = socket.on('message', (message) => {
@@ -112,10 +113,17 @@ client.openSocket()
       if (message === 'available') {
         bot.say({
           text: 'Coffee!!!',
-          channel: process.env.KADFE_CHANNEL
+          channel
         });
       } if (message === 'unavailable') {
+        const msg = claimant ?
+          `${claimant} has taken their coffee!' :
+          'The coffee has been taken'
         claimant = null;
+        bot.say({
+          text: message
+          channel
+        })
       }
     })
   }).catch((error) => {

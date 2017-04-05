@@ -1,4 +1,5 @@
 {
+  "version": "0.1.0",
   "scripts": {
     "repl": "node",
     "start": "node bot.js",

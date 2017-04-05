@@ -37,6 +37,11 @@ controller.hears(['claim', 'mine'], ['direct_mention', 'mention'], (bot, message
         bot.replyWithTyping(message, `This coffee belongs to <@${claimant}>. Shoo!`);
       } else if (body['status'] === 'available' && claimant === message.user) {
         bot.replyWithTyping(message, `It's yours already. Get moving!!`);
+      } else if (body['status'] === 'unavailable') {
+        bot.replyWithTyping(message, "Claim what, exactly? Brew some! Do you think coffee grows on trees??")
+        setTimeout(() => {
+          bot.replyWithTyping(message, "Oh.");
+        }, 5000);
       } else {
         bot.replyWithTyping(message, "This doesn't seem right. Please yell @joe.");
       }

@@ -117,11 +117,11 @@ client.openSocket()
         });
       } if (message === 'unavailable') {
         const msg = claimant ?
-          `${claimant} has taken their coffee!' :
+          `${claimant} has taken their coffee!` :
           'The coffee has been taken'
         claimant = null;
         bot.say({
-          text: message
+          text: msg,
           channel
         })
       }

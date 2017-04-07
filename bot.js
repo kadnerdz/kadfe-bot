@@ -113,7 +113,7 @@ client.openSocket()
       if (message === 'available') {
         bot.say({
           text: 'Coffee!!!',
-          channel
+          channel: channel
         });
       } if (message === 'unavailable') {
         const msg = claimant ?
@@ -122,9 +122,15 @@ client.openSocket()
         claimant = null;
         bot.say({
           text: msg,
-          channel
+          channel: channel
         })
       }
+    }).on('error', err => {
+      console.log(`WEBSOCKET ERR: ${err}`)
+      bot.say({
+        text: `OH GOD HELP ME: ${err}`,
+        channel: channel
+      })
     })
   }).catch((error) => {
     console.log(`websocket attempt failed: ${error}`)
